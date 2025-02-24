@@ -25,5 +25,10 @@
         name: docker
         state: started
 
+    - name: Stop and remove existing container if running
+      shell: |
+        docker ps -a --format '{{ "{{" }} .Names {{ "}}" }}' | grep -w calculator && docker stop calculator && docker rm calculator || true
+      ignore_errors: yes
+
     - name: Running container
       shell: docker run -it -d --name calculator iiitb/calculator /bin/bash
