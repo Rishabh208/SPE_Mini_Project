@@ -5,7 +5,7 @@ pipeline {
    }
     environment {
         DOCKER_IMAGE_NAME = 'calculator'
-        GITHUB_REPO_URL = 'https://github.com/BThangaraju/calculator.git'
+        GITHUB_REPO_URL = 'https://github.com/Rishabh208/SPE_Mini_Project.git'
     }
 
     stages {
@@ -53,12 +53,12 @@ pipeline {
 }
  post {
         success {
-            mail to: 'b.thangaraju@iiitb.ac.in',
+            mail to: 'rkumarsingh136@gmail.com',
                  subject: "Application Deployment SUCCESS: Build ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "The build was successful!"
         }
         failure {
-            mail to: 'b.thangaraju@iiitb.ac.in',
+            mail to: 'rkumarsingh136@gmail.com',
                  subject: "Application Deployment FAILURE: Build ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "The build failed."
         }
